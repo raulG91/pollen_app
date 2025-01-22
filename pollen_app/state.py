@@ -26,10 +26,9 @@ class FormState(rx.State):
             print("Error: ",err)
 
     async def _getPollenData(self,lat,long):
-        print(os.environ["token"])
         try:
             params={
-                "key": os.environ["token"],
+                "key": os.environ["TOKEN"],
                 "location.longitude": str(long),
                 "location.latitude": str(lat),
                 "days": str(5),
