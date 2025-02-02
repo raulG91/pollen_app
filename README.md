@@ -18,6 +18,10 @@ To use the application, you will need to have an access token from Google to aut
 
 -   Instructions about how to get the API key follow the guide provided by [Google](https://developers.google.com/maps/documentation/pollen/cloud-setup).
 
-Once you have the API Token you need to set it in your environment. Create an environment variable called `token="Your access token"`. 
+Once you have the API Token you need to set it in your environment. Create an environment variable called `TOKEN="Your access token"`. 
 
 After following previous steps you will be able to launch the application just executing `reflex run`.
+
+## Docker
+
+This reposotiry contains a `Dockerfile` which allow you to create a Docker image to execute the application. As mentioned before you must set in your image an environment variable with your access `TOKEN` from Google. Run the image using following command `docker run -e TOKEN="Your access token" -d -p 3000:3000 -p 8000:8000 --name pollen-app pollen-app:latest`

@@ -37,7 +37,7 @@ def index() -> rx.Component:
         footer(),
     )
 meta=[
-    {"author": "Raul GArcia"},
+    {"author": "Raul Garcia"},
     {"char_set":"UTF-8"},
     {"description":"Polen App"},
     {"keywords": "Polen, Pollen, España, Andalucia"},
@@ -49,4 +49,4 @@ meta=[
 app = rx.App(stylesheets = Styles.STYLESHEET,
             style=Styles.style)
 
-app.add_page(index,title="Polen app",description="Polen app",meta=meta,on_load=FormState.readFile)
+app.add_page(index,title="Polen app",description="Polen app",meta=meta,on_load=FormState.on_load)

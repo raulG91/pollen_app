@@ -9,7 +9,7 @@ from datetime import datetime
 
 
 class FormState(rx.State):
-    _data:dict
+    data:dict
     provinces:list[str] = ["Almería","Cádiz","Córdoba","Granada","Huelva","Jaén","Málaga","Sevilla"]
     towns_list:list[str] = []
     selected_province:str = ""
@@ -19,12 +19,16 @@ class FormState(rx.State):
     
     async def readFile(self):
         file_path = os.path.join(os.path.dirname(__file__),'andalucia.json')
+        print("Reading file: "+file_path)
+
         try:
             with open(file_path,"r") as file:
-                self._data = json.load(file)
+                self.data = json.load(file)
         except Exception as err:
             print("Error: ",err)
-
+    async def on_load(self):
+        print("onload event is trigered")
+        await self.readFile()  
     async def _getPollenData(self,lat,long):
         try:
             params={
@@ -45,16 +49,16 @@ class FormState(rx.State):
             print(e)    
     def on_change_province(self,value:str):
         self.selected_province = value
-        towns = self._data[self.selected_province]
+        towns = self.data[self.selected_province]
         self.towns_list = [town['poblacion'] for town in towns]
         self.selected_town=self.towns_list[0]
     def on_change_town(self,value:str):
         self.selected_town = value
-    @rx.event
+   #     @rx.event    
     async def submit_form(self,form_data:dict):
         index = self.towns_list.index(self.selected_town)
-        latitud = self._data[self.selected_province][index]['latitud']
-        longitud = self._data[self.selected_province][index]['longitud']
+        latitud = self.data[self.selected_province][index]['latitud']
+        longitud = self.data[self.selected_province][index]['longitud']
         results =  await self._getPollenData(lat = latitud,long=longitud)
         self.pollen_data={}
         

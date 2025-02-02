@@ -96,9 +96,12 @@ def pollen_data() -> rx.Component:
         ),
         rx.cond(
             FormState.pollen_data,
-            data_table()
+            data_table(),
+            empty()
         )
     )
+def empty() -> rx.Component:
+    return rx.vstack()
 
 def data_table() -> rx.Component:
     #Display table informatio
