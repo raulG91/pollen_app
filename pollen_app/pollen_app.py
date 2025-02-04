@@ -30,7 +30,7 @@ def index() -> rx.Component:
                 justify="center",
             ),
             direction="column",
-            justify="space-between",
+            #justify="between",
             
             min_height="95vh",  # Ensure the full height is distributed
         ),
