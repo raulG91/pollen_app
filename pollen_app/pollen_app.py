@@ -12,7 +12,7 @@ from .components.navbar import nav_bar
 
 def index() -> rx.Component:
     # Welcome Page (Index)
-    return rx.container(
+    return rx.box(
         rx.flex(
             nav_bar(),
             rx.color_mode.button(position="top-right"),
@@ -26,15 +26,16 @@ def index() -> rx.Component:
                     width="100%",
                     margin_top ="10px"
                 ),
-                spacing="5",
+                #spacing="5",
                 justify="center",
+                width="100%",
             ),
             direction="column",
-            #justify="between",
-            
+            width="100%",
             min_height="95vh",  # Ensure the full height is distributed
         ),
-        footer(),
+        
+        footer()
     )
 meta=[
     {"author": "Raul Garcia"},
