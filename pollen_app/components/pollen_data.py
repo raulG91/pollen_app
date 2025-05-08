@@ -73,12 +73,15 @@ def display_value(value:int)->rx.Component:
 
 def display_row(data_row:dict)->rx.Component:
     return rx.table.row(
-                rx.table.row_header_cell(data_row[0]),
+                rx.table.row_header_cell(data_row[0],font_size=["0.8em", "0.9em", "1em"]),
                 display_value(data_row[1][0]),
                 display_value(data_row[1][1]),
                 display_value(data_row[1][2]),
                 display_value(data_row[1][3]),
                 display_value(data_row[1][4])
+                
+
+                
   
     )
 def pollen_data() -> rx.Component:
@@ -104,29 +107,28 @@ def empty() -> rx.Component:
     return rx.vstack()
 
 def data_table() -> rx.Component:
-    #Display table informatio
+    #Display table information
     return rx.box(
             rx.table.root(
                 rx.table.header(
                     rx.table.row(
-                        rx.table.column_header_cell("Fecha"),
-                        rx.table.column_header_cell(FormState.dates[0]),
-                        rx.table.column_header_cell(FormState.dates[1]),
-                        rx.table.column_header_cell(FormState.dates[2]),
-                        rx.table.column_header_cell(FormState.dates[3]),
-                        rx.table.column_header_cell(FormState.dates[4])
+                        rx.table.column_header_cell("Fecha",font_size=["0.8em", "0.9em", "1em"]),
+                        rx.table.column_header_cell(FormState.dates[0],font_size=["0.8em", "0.9em", "1em"]),
+                        rx.table.column_header_cell(FormState.dates[1],font_size=["0.8em", "0.9em", "1em"]),
+                        rx.table.column_header_cell(FormState.dates[2],font_size=["0.8em", "0.9em", "1em"]),
+                        rx.table.column_header_cell(FormState.dates[3],font_size=["0.8em", "0.9em", "1em"]),
+                        rx.table.column_header_cell(FormState.dates[4],font_size=["0.8em", "0.9em", "1em"])
                     ),
                 ),
                 rx.table.body(
                     rx.foreach(
                         FormState.pollen_data,
-                        display_row #Display value for current plant    ∫ 
+                        display_row #Display value for current plant
                     ),
                 ),  
             margin_top = "20px"),   
             leyend()
-   
-    ) 
+    )
 
 def leyend() ->rx.Component:
 
@@ -135,23 +137,23 @@ def leyend() ->rx.Component:
                 rx.hstack(
                     rx.hstack(
                         rx.icon("circle", color=color_map[0],stroke_width=0,fill=color_map[0]),
-                        rx.text("Nulo")
+                        rx.text("Nulo",font_size=["0.8em", "0.9em", "1em"])
                     ),
                     rx.hstack(
                         rx.icon("circle", color=color_map[1],stroke_width=0,fill=color_map[1]),
-                        rx.text("Bajo")
+                        rx.text("Bajo",font_size=["0.8em", "0.9em", "1em"])
                     ),
                     rx.hstack(
                         rx.icon("circle", color=color_map[3],stroke_width=0,fill=color_map[3]),
-                        rx.text("Moderado")
+                        rx.text("Moderado",font_size=["0.8em", "0.9em", "1em"])
                     ),
                     rx.hstack(
                         rx.icon("circle", color=color_map[4],stroke_width=0,fill=color_map[4]),
-                        rx.text("Alto")
+                        rx.text("Alto",font_size=["0.8em", "0.9em", "1em"])
                     ),
                     rx.hstack(
                         rx.icon("circle", color=color_map[5],stroke_width=0,fill=color_map[5]),
-                        rx.text("Muy alto")
+                        rx.text("Muy alto",font_size=["0.8em", "0.9em", "1em"])
                     ),
                 ),
                 width="100%",

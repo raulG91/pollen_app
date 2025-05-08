@@ -8,7 +8,7 @@ charset-normalizer==3.4.0
 click==8.1.7
 docutils==0.21.2
 fastapi==0.115.3
-granian==2.2.4
+granian==2.2.5
 gunicorn==23.0.0
 h11==0.14.0
 httpcore==1.0.6
@@ -43,9 +43,9 @@ python-socketio==5.13.0
 PyYAML==6.0.2
 readme_renderer==44.0
 redis==5.2.1
-reflex==0.7.8
+reflex==0.7.10.post1
 reflex-chakra==0.6.2
-reflex-hosting-cli==0.1.42
+reflex-hosting-cli==0.1.49
 requests==2.32.3
 requests-toolbelt==1.0.0
 rfc3986==2.0.0

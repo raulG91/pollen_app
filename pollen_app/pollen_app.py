@@ -19,9 +19,10 @@ def index() -> rx.Component:
             rx.vstack(
                 
                 rx.box(
-                    pollen_data(),  # Wrap pollen_data in a box for isolation
+                    pollen_data(),
+                
                     display="flex",
-                    align_items="center",
+                    #align_items="center",
                     justify_content="center",
                     width="100%",
                     margin_top ="10px"
