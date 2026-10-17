@@ -26,6 +26,7 @@ class FormState(rx.State):
                 self.data = json.load(file)
         except Exception as err:
             print("Error: ",err)
+    @rx.event
     async def on_load(self):
         print("onload event is trigered")
         await self.readFile()  
@@ -47,14 +48,18 @@ class FormState(rx.State):
                 return {}  
         except Exception as e:
             print(e)    
+    @rx.event        
     def on_change_province(self,value:str):
         self.selected_province = value
+        print("Selected province: ",self.selected_province)
         towns = self.data[self.selected_province]
+        
         self.towns_list = [town['poblacion'] for town in towns]
-        self.selected_town=self.towns_list[0]
+        self.selected_town=self.towns_list[0]   
+    @rx.event    
     def on_change_town(self,value:str):
         self.selected_town = value
-   #     @rx.event    
+    @rx.event    
     async def submit_form(self,form_data:dict):
         index = self.towns_list.index(self.selected_town)
         latitud = self.data[self.selected_province][index]['latitud']
@@ -78,4 +83,4 @@ class FormState(rx.State):
                 else:
                     self.pollen_data[plant_name].append(category)  
         print(self.pollen_data)            
-
+        

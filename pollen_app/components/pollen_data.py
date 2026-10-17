@@ -95,7 +95,7 @@ def pollen_data() -> rx.Component:
                 form_data(rx.hstack)
             ),
             on_submit = FormState.submit_form,
-            reset_on_submit=True
+            reset_on_submit=False
         ),
         rx.cond(
             FormState.pollen_data,
