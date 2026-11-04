@@ -7,7 +7,6 @@ certifi==2024.8.30
 charset-normalizer==3.4.0
 click==8.5.0
 docutils==0.21.2
-fastapi==0.115.3
 granian==2.8.4
 gunicorn==23.0.0
 h11==0.14.0
@@ -45,6 +44,7 @@ readme_renderer==44.0
 redis==7.4.1
 reflex==0.9.12
 reflex-base==0.9.12
+reflex-build-sdk==0.1.1
 reflex-chakra==0.6.2
 reflex-components-code==0.9.6
 reflex-components-core==0.9.10.post1
@@ -58,7 +58,7 @@ reflex-components-radix==0.9.10.post1
 reflex-components-react-player==0.9.2
 reflex-components-recharts==0.9.4.post1
 reflex-components-sonner==0.9.4
-reflex-hosting-cli==0.1.72
+reflex-hosting-cli==0.2.1
 requests==2.32.3
 requests-toolbelt==1.0.0
 rfc3986==2.0.0
